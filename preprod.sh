@@ -1,8 +1,8 @@
 #!/bin/bash
 
-base_folder="~/"
+base_folder="./"
 preprod_folder=${base_folder}"preprod"
-alias_file=${base_folder}".bash_profile"
+alias_file=${base_folder}"bash_profile"
 
 if [ -d "$preprod_folder" ]; then
     echo "---------------------------------"
@@ -44,26 +44,23 @@ echo "Dossier cloné dans $preprod_folder"
 
 echo "=================================="
 
-echo "Téléchargement des outils :"
-echo "1) Composer"
-wget https://files.myclientisrich.com/composer_wp/composer.phar ${base_folder}
-echo "2) Wp-cli"
-wget https://files.myclientisrich.com/composer_wp/wp-cli.phar ${base_folder}
+echo "Téléchargement des outils (Composer et WP-cli) :"
+git clone https://github.com/MyClientisRich/preprod.git ${base_folder}_exec
 
 echo "=================================="
 echo "On prépare les alias vers les fichiers"
-echo 'alias composer="'${base_folder}'composer.phar"' >> ${alias_file}
-echo 'alias wp="'${base_folder}'wp-cli.phar"' >> ${alias_file}
+echo 'alias composer="'${base_folder}'_exec/composer.phar"' >> ${alias_file}
+echo 'alias wp="'${base_folder}'_exec/wp-cli.phar"' >> ${alias_file}
 source ${alias_file}
 
 echo "=================================="
 echo "On rend les 2 fichiers executables"
-chmod +x ${base_folder}composer.phar
-chmod +x ${base_folder}wp-cli.phar
+chmod +x ${base_folder}_exec/composer.phar
+chmod +x ${base_folder}_exec/wp-cli.phar
 
 echo "=================================="
 echo "On met à jour les 2 outils"
-${base_folder}composer.phar self-update
-${base_folder}wp-cli.phar cli update
+${base_folder}_exec/composer.phar self-update
+${base_folder}_exec/wp-cli.phar cli update
 
 echo "Et c'est pret !"
