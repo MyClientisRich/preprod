@@ -43,11 +43,6 @@ git clone https://mcir@bitbucket.org/mcir/${projectname}.git ${preprod_folder}
 echo "Dossier cloné dans $preprod_folder"
 
 echo "=================================="
-
-echo "Téléchargement des outils (Composer et WP-cli) :"
-git clone https://github.com/MyClientisRich/preprod.git ${base_folder}_exec
-
-echo "=================================="
 echo "On prépare les alias vers les fichiers"
 echo 'alias composer="'${base_folder}'_exec/composer.phar"' >> ${alias_file}
 echo 'alias wp="'${base_folder}'_exec/wp-cli.phar"' >> ${alias_file}
