@@ -1,8 +1,8 @@
 #!/bin/bash
 
-base_folder="./"
+base_folder="~/"
 preprod_folder=${base_folder}"preprod"
-alias_file=${base_folder}"bash_profile"
+alias_file=${base_folder}".bash_profile"
 
 if [ -d "$preprod_folder" ]; then
     echo "---------------------------------"
