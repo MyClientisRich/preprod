@@ -46,8 +46,9 @@ echo "Dossier cloné dans $preprod_folder"
 
 echo "=================================="
 echo "On prépare les alias vers les fichiers"
-echo 'alias composer="'${base_folder}'_exec/composer.phar"' >> ${alias_file}
-echo 'alias wp="'${base_folder}'_exec/wp-cli.phar"' >> ${alias_file}
+echo 'alias composer="~/_exec/composer.phar"' >> ${alias_file}
+echo 'alias wp="~/_exec/wp-cli.phar"' >> ${alias_file}
+
 source ${alias_file}
 
 echo "=================================="
